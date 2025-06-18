@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>🔥 Algerian Forest Fire Project</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #232526, #414345);
+            color: #f5f5f5;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px 20px;
+            text-align: center;
+            font-size: 2rem;
+            color: #00ffff;
+            box-shadow: 0 2px 10px rgba(0, 255, 255, 0.2);
+        }
+
+        main {
+            max-width: 900px;
+            margin: auto;
+            padding: 40px 20px;
+        }
+
+        h2 {
+            color: #00ffcc;
+            margin-top: 30px;
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            padding-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .note {
+            background: #111;
+            padding: 15px;
+            border-left: 5px solid #00ffff;
+            margin: 30px 0;
+            font-size: 1.05rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #00ffff;
+            color: #000;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #00cccc;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #111;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            header {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                font-size: 0.95rem;
+                padding: 10px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        🔥 Algerian Forest Fire Weather Index Predictor
+    </header>
+
+    <main>
+        <h2>🌍 Project Description</h2>
+        <p>
+            This project is developed to predict the Forest Fire Weather Index (FWI) for different regions in Algeria based on climate data.
+            The goal is to provide early alerts for potential forest fires and help agencies prepare disaster response plans.
+        </p>
+
+        <h2>📈 Dataset Details</h2>
+        <p>The dataset used includes features from two Algerian regions:</p>
+        <ul>
+            <li>Temperature (°C)</li>
+            <li>Relative Humidity (%)</li>
+            <li>Wind Speed (km/h)</li>
+            <li>Rainfall (mm)</li>
+            <li>ISI, DMC, FFMC values</li>
+            <li>Region: 0 = Bejaia, 1 = Sidi-Bel Abbes</li>
+            <li>Classes: 0 = Not Fire, 1 = Fire</li>
+        </ul>
+
+        <h2>🎯 Objective</h2>
+        <p>
+            Predict the FWI value using machine learning models, helping authorities understand fire risk levels and act accordingly.
+        </p>
+
+        <div class="note">
+            🚀 To use the prediction tool, go to <strong><code>/predict</code></strong> in your browser.
+        </div>
+
+        <a href="/predictdata" class="btn">Go to Predictor</a>
+    </main>
+
+    <footer>
+        &copy; 2025 Algerian Forest Fire Project | For Academic Use Only
+    </footer>
+
+</body>
+</html>

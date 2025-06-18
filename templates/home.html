@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 FWI Predictor</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #141e30, #243b55);
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            width: 100%;
+            max-width: 700px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.3);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #00ffff;
+            font-size: 28px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 6px;
+            color: #ccffff;
+        }
+        input, select {
+            width: 100%;
+            padding: 10px;
+            border-radius: 6px;
+            border: none;
+            font-size: 1rem;
+            background-color: #f1f1f1;
+            color: #000;
+        }
+        input::placeholder {
+            color: #999;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        .btn {
+            background-color: #00ffff;
+            color: #000;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s;
+            width: 100%;
+            font-size: 1rem;
+        }
+        .btn:hover {
+            background-color: #00cccc;
+        }
+        .result {
+            text-align: center;
+            margin-top: 25px;
+            font-size: 1.2rem;
+            color: #00ff99;
+        }
+        @media (max-width: 600px) {
+            form {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🔥 Forest Fire Weather Index Predictor</h2>
+        <form action="{{ url_for('predict_data') }}" method="POST">
+            <div>
+                <label for="temp">Temperature (°C)</label>
+                <input type="number" step="any" name="temp" id="temp" placeholder="e.g. 25.5" required>
+            </div>
+            <div>
+                <label for="rh">Relative Humidity (%)</label>
+                <input type="number" step="any" name="rh" id="rh" placeholder="e.g. 45.0" required>
+            </div>
+            <div>
+                <label for="ws">Wind Speed (km/h)</label>
+                <input type="number" step="any" name="ws" id="ws" placeholder="e.g. 10.5" required>
+            </div>
+            <div>
+                <label for="rain">Rainfall (mm)</label>
+                <input type="number" step="any" name="rain" id="rain" placeholder="e.g. 0.0" required>
+            </div>
+            <div>
+                <label for="isi">ISI</label>
+                <input type="number" step="any" name="isi" id="isi" placeholder="e.g. 7.3" required>
+            </div>
+            <div>
+                <label for="dmc">DMC</label>
+                <input type="number" step="any" name="dmc" id="dmc" placeholder="e.g. 26.7" required>
+            </div>
+            <div>
+                <label for="ffmc">FFMC</label>
+                <input type="number" step="any" name="ffmc" id="ffmc" placeholder="e.g. 85.4" required>
+            </div>
+            <div>
+                <label for="region">Region (0 = Bejaia, 1 = Sidi-Bel Abbes)</label>
+                <input type="number" step="1" name="region" id="region" placeholder="0 or 1" min="0" max="1" required>
+            </div>
+            <div class="full-width">
+                <label for="classes">Fire Intensity Class (0 = Not Fire, 1 = Fire)</label>
+                <input type="number" step="1" name="classes" id="classes" placeholder="0 or 1" min="0" max="1" required>
+            </div>
+            <div class="full-width">
+                <button type="submit" class="btn">Predict FWI</button>
+            </div>
+        </form>
+        <div class="result">
+            🔥 Predicted FWI: <strong>{{ results }}</strong>
+        </div>
+    </div>
+</body>
+</html>
